@@ -1,0 +1,28 @@
+Style Guide:
+
+Naming Convention:
+ - CamelCase naming
+ - Must start w/ a capital letter for value variables
+
+Comments in Code:
+ - Top comments regarding what the script does and 
+ - any comments to allow others to understand code
+
+Functions:
+ - Must have descriptive name/ comment regarding usage
+ - Start function name Captialized & Camelcase
+ - Unity functions at top of script in order: ( Awake, Start, Update, FixedUpdate, LateUpdate, etc.)
+ - Other functions below Unity Functions
+
+Code:
+ - If a line goes quite long, split it into multiple lines so it can be readable
+ - Add TMPro library for usage for text
+
+UNITY STUFF:
+
+Text: 
+ - Use TextMeshPro GO's (GameObjects)
+
+Version:
+ - Unity 2020.3.17f1, same as lab
+
