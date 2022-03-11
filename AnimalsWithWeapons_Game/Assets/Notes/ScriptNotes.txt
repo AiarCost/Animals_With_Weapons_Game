@@ -1,0 +1,39 @@
+Poential scripts to write:
+
+SceneManager - Manages the scenes and which scene we are on
+
+CharacterCreation - May have multiple sub scripts, but will overall help the player in creating their character before starting the game
+
+GameManager - this script would control the overall battle and have the trigger to when the game start or end 
+
+AICreation - Create AI for the player to battle against
+
+action script(s?) - These are the actions that the player can do in the game
+
+
+Classes:
+
+PlayerClass
+
+   var Animal
+   Var Weapon
+
+
+Weapon
+   var WeaponName
+   var WeaponDamage
+   var Attack1Recharge
+   var Attack2Recharge
+
+   Func Attack
+   Func Attack2
+
+Animal
+   var AnimalName
+   var AnimalHealth
+   var AnimalSpeed
+   var AnimalDefense
+
+
+   Func Defense
+   Func Utility
