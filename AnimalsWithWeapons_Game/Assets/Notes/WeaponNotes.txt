@@ -5,3 +5,6 @@ Knife
 
 Chainsaw
 Morning Star
+
+Desert Eagle (.50 handgun)
+Flamethrower

@@ -1,4 +1,4 @@
-Poential scripts to write:
+Potential scripts to write:
 
 SceneManager - Manages the scenes and which scene we are on
 
