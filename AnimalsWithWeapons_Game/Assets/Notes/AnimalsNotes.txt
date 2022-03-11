@@ -5,3 +5,6 @@ Frog
 
 Ferret
 Chicken
+
+Bear
+Salamander
