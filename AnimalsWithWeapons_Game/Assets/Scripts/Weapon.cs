@@ -18,8 +18,5 @@ public class Weapon
 
     }
 
-    public void AttackType2()
-    {
 
-    }
 }

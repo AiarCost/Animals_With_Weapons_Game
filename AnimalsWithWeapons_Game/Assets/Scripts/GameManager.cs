@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    Player playerClass;
-    Player enemyClass;
+    public Player playerClass;
+    public Player enemyClass;
+
+
 
 
 }

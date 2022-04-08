@@ -4,32 +4,33 @@ using UnityEngine;
 
 public class Player 
 {
-    Animal AnimalPlayer;
-    Weapon WeaponPlayer;
+    public Animal AnimalPlayer;
+    public Weapon WeaponPlayer;
 
-    Player( Animal AnimalChosen, Weapon WeaponChosen)
+
+   public Player( Animal AnimalChosen, Weapon WeaponChosen)
     {
         AnimalPlayer = AnimalChosen;
         WeaponPlayer = WeaponChosen;
     }
 
-    public void Attack1()
+    public void WeaponAttack()
     {
         WeaponPlayer.AttackType1();
     }
 
-    public void Attack2()
+    public void AnimalAttack()
     {
-        WeaponPlayer.AttackType2();
+        AnimalPlayer.AnimalAttack();
     }
 
-    public void Utility1()
+    public void AnimalDefense()
     {
-        AnimalPlayer.Utility1();
+        AnimalPlayer.AnimalDefense();
     }
 
-    public void Utility2()
+    public void Flee()
     {
-        AnimalPlayer.Utility2();
+        //flee
     }
 }
