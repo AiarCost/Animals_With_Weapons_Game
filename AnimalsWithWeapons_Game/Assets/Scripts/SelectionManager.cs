@@ -67,6 +67,8 @@ public class SelectionManager : MonoBehaviour
             case 4:
 
             case 5:
+                break;
+
         }
     }
     public void WeaponConfirmation()
