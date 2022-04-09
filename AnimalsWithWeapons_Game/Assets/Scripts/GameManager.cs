@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public Player playerClass;
-    public Player enemyClass;
+    public Player playerClass = null;
+    public Player enemyClass = null;
 
     //instance
     public static GameManager instance;
@@ -27,5 +27,12 @@ public class GameManager : MonoBehaviour
         playerClass = player;
 
         Debug.Log("Player Created." + playerClass.AnimalPlayer.AnimalName + playerClass.WeaponPlayer.WeaponName);
+    }
+
+    public void EnemyCreated(Player enemy)
+    {
+        enemyClass = enemy;
+
+        Debug.Log("Enemy Created." + enemyClass.AnimalPlayer.AnimalName + enemyClass.WeaponPlayer.WeaponName);
     }
 }

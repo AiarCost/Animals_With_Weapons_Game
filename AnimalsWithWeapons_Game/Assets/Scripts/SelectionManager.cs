@@ -8,13 +8,14 @@ using TMPro;
 public class SelectionManager : MonoBehaviour
 {
     public Sprite[] AnimalImages, WeaponImages;
+    public Button AnimalButton, WeaponButton;
     public Image AnimalImage, WeaponImage;
     int WeaponIndex =0, AnimalIndex=0;
 
     public GameObject warningText;
 
-    public Animal AnimalChosen;
-    public Weapon WeaponChosen;
+    public Animal AnimalChosen = null;
+    public Weapon WeaponChosen = null;
 
 
 
@@ -31,7 +32,17 @@ public class SelectionManager : MonoBehaviour
 
             GameManager.instance.PlayerCreated(CreatePlayer);
 
-            
+
+            //Enemy Creation
+            int EnemyAnimal, EnemyWeapon;
+
+            EnemyAnimal = UnityEngine.Random.Range(0, 5);
+            EnemyWeapon = UnityEngine.Random.Range(0, 5);
+            AnimalConfirmation(EnemyAnimal);
+            WeaponConfirmation(EnemyWeapon);
+            Player createEnemy = new Player(AnimalChosen, WeaponChosen);
+
+            GameManager.instance.EnemyCreated(createEnemy);
         }
         catch(NullReferenceException ex)
         {
@@ -53,55 +64,55 @@ public class SelectionManager : MonoBehaviour
 
     }
 
-    public void AnimalConfirmation()
+    public void AnimalConfirmation( int Index)
     {
 
-        switch (AnimalIndex)
+        switch (Index)
         {
             case 0:
-                AnimalChosen = new Bear("Bear", AnimalImages[AnimalIndex]);
+                AnimalChosen = new Bear("Bear", AnimalImages[Index]);
                 break;
             case 1:
-                AnimalChosen = new Chicken("Chicken", AnimalImages[AnimalIndex]);
+                AnimalChosen = new Chicken("Chicken", AnimalImages[Index]);
                 break;
             case 2:
-                AnimalChosen = new Ferret("Ferret", AnimalImages[AnimalIndex]);
+                AnimalChosen = new Ferret("Ferret", AnimalImages[Index]);
                 break;
             case 3:
-                AnimalChosen = new Frog("Frog", AnimalImages[AnimalIndex]);
+                AnimalChosen = new Frog("Frog", AnimalImages[Index]);
                 break;
             case 4:
-                AnimalChosen = new Giraffe("Giraffe", AnimalImages[AnimalIndex]);
+                AnimalChosen = new Giraffe("Giraffe", AnimalImages[Index]);
                 break;
             case 5:
-                AnimalChosen = new Salamander("Salamander", AnimalImages[AnimalIndex]);
+                AnimalChosen = new Salamander("Salamander", AnimalImages[Index]);
                 break;
                 
         }
 
         Debug.Log(AnimalChosen.AnimalName);
     }
-    public void WeaponConfirmation()
+    public void WeaponConfirmation(int Index)
     {
-        switch (WeaponIndex)
+        switch (Index)
         {
             case 0:
-                WeaponChosen = new Chainsaw(WeaponImages[WeaponIndex]);
+                WeaponChosen = new Chainsaw(WeaponImages[Index]);
                 break;
             case 1:
-                WeaponChosen = new DesertEagle(WeaponImages[WeaponIndex]);
+                WeaponChosen = new DesertEagle(WeaponImages[Index]);
                 break;
             case 2:
-                WeaponChosen = new Flamethrower(WeaponImages[WeaponIndex]);
+                WeaponChosen = new Flamethrower(WeaponImages[Index]);
                 break;
             case 3:
-                WeaponChosen = new Knife(WeaponImages[WeaponIndex]);
+                WeaponChosen = new Knife(WeaponImages[Index]);
                 break;
             case 4:
-                WeaponChosen = new MorningStar(WeaponImages[WeaponIndex]);
+                WeaponChosen = new MorningStar(WeaponImages[Index]);
                 break;
             case 5:
-                WeaponChosen = new Shuriken(WeaponImages[WeaponIndex]);
+                WeaponChosen = new Shuriken(WeaponImages[Index]);
                 break;
 
         }
@@ -201,6 +212,9 @@ public class SelectionManager : MonoBehaviour
         AnimalImage.sprite = AnimalImages[0];
         WeaponImage.sprite = WeaponImages[0];
         warningText.SetActive(false);
+
+        AnimalButton.onClick.AddListener(() => AnimalConfirmation(AnimalIndex));
+        WeaponButton.onClick.AddListener(() => WeaponConfirmation(WeaponIndex));
     }
 
 

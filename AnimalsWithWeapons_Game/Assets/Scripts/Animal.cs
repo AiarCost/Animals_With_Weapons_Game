@@ -23,8 +23,8 @@ public class Chicken : Animal, IAnimal
     {
         this.AnimalName = AnimalImage.name;
         this.Health = 0f;
-        this.speed = 0;
-        this.defense = 0;
+        this.speed = 40;
+        this.defense = 60;
         this.AnimalImage = AnimalImage;
 
         AnimalDefense();
@@ -50,8 +50,8 @@ public class Bear : Animal, IAnimal
     {
         this.AnimalName = AnimalImage.name;
         this.Health = 0f;
-        this.speed = 0;
-        this.defense = 0;
+        this.speed = 10;
+        this.defense = 20;
         this.AnimalImage = AnimalImage;
     }
 
@@ -75,8 +75,8 @@ public class Ferret : Animal, IAnimal
     {
         this.AnimalName = AnimalImage.name;
         this.Health = 0f;
-        this.speed = 0;
-        this.defense = 0;
+        this.speed = 50;
+        this.defense = 70;
         this.AnimalImage = AnimalImage;
     }
 
@@ -100,8 +100,8 @@ public class Frog : Animal, IAnimal
     {
         this.AnimalName = AnimalImage.name;
         this.Health = 0f;
-        this.speed = 0;
-        this.defense = 0;
+        this.speed = 30;
+        this.defense = 70;
         this.AnimalImage = AnimalImage;
     }
 
@@ -125,8 +125,8 @@ public class Giraffe : Animal, IAnimal
     {
         this.AnimalName = AnimalImage.name;
         this.Health = 0f;
-        this.speed = 0;
-        this.defense = 0;
+        this.speed = 20;
+        this.defense = 10;
         this.AnimalImage = AnimalImage;
     }
 
@@ -150,8 +150,8 @@ public class Salamander : Animal, IAnimal
     {
         this.AnimalName = AnimalImage.name;
         this.Health = 0f;
-        this.speed = 0;
-        this.defense = 0;
+        this.speed = 60;
+        this.defense = 50;
         this.AnimalImage = AnimalImage;
     }
 

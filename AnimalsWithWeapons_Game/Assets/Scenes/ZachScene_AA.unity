@@ -2968,19 +2968,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1688732789}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1805988639}
-        m_TargetAssemblyTypeName: SelectionManager, Assembly-CSharp
-        m_MethodName: WeaponConfirmation
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1688732789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3195,6 +3183,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cb2c3e1780b431943ab7f254f072ee2d, type: 3}
   - {fileID: 21300000, guid: c27085434d5256f489aa20d9acd313d1, type: 3}
   - {fileID: 21300000, guid: 8fac52bd273a6d54699a5e1e9f1d6219, type: 3}
+  AnimalButton: {fileID: 1864585163}
+  WeaponButton: {fileID: 1688732788}
   AnimalImage: {fileID: 1869520545}
   WeaponImage: {fileID: 759403989}
   warningText: {fileID: 1091720237}
@@ -3428,19 +3418,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1864585164}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1805988639}
-        m_TargetAssemblyTypeName: SelectionManager, Assembly-CSharp
-        m_MethodName: AnimalConfirmation
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1864585164
 MonoBehaviour:
   m_ObjectHideFlags: 0
