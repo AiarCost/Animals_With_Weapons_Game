@@ -10,7 +10,7 @@ public class Weapon : IWeapon
 {
     public string WeaponName;
     public float Damage;
-    public string Attack1;
+    public string Attack1Name;
     public Sprite WeaponImage;
 
 
@@ -28,13 +28,13 @@ public class Chainsaw : Weapon, IWeapon
     public Chainsaw(Sprite WeaponSprite)
     {
         WeaponName = "Chainsaw";
-
+        Attack1Name = "BRRRR";
        
     }
 
     public override void AttackType1()
     {
-        
+        Debug.Log("ChainsawAttack");
     }
 }
 

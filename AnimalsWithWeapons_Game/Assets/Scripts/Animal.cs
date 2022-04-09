@@ -7,6 +7,9 @@ public class Animal
     public int defense;
     public Sprite AnimalImage;
 
+    public string Attack1Name;
+    public string Defense1Name;
+
     public virtual float  AnimalAttack() { return 0f; }
     public virtual void AnimalDefense() { Debug.Log("The Animal Class function ran!"); }
 }
@@ -53,19 +56,21 @@ public class Bear : Animal, IAnimal
         this.speed = 10;
         this.defense = 20;
         this.AnimalImage = AnimalImage;
+        Attack1Name = "Claws";
+        Defense1Name = "ROAR";
     }
 
     public override float AnimalAttack()
     {
 
-
+        Debug.Log("Bear Attack");
 
         return 0f;
     }
 
     public override void AnimalDefense()
     {
-
+        Debug.Log("Bear Defense");
     }
 }
 
