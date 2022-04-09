@@ -16,4 +16,12 @@ public class ScenesManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneName);
     }
+
+    public void ChangeSceneWithPlayerCheck(int SceneIndex)
+    {
+        if(GameManager.instance.playerClass != null)
+        {
+            SceneManager.LoadScene(SceneIndex);
+        }
+    }
 }
