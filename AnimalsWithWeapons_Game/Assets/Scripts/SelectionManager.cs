@@ -29,7 +29,9 @@ public class SelectionManager : MonoBehaviour
             }
             Player CreatePlayer = new Player(AnimalChosen, WeaponChosen);
 
-            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().playerClass = CreatePlayer;
+            GameManager.instance.PlayerCreated(CreatePlayer);
+
+            
         }
         catch(NullReferenceException ex)
         {
@@ -57,23 +59,54 @@ public class SelectionManager : MonoBehaviour
         switch (AnimalIndex)
         {
             case 0:
-
-            case 1:
-
-            case 2:
-
-            case 3:
-
-            case 4:
-
-            case 5:
+                AnimalChosen = new Bear("Bear", AnimalImages[AnimalIndex]);
                 break;
-
+            case 1:
+                AnimalChosen = new Chicken("Chicken", AnimalImages[AnimalIndex]);
+                break;
+            case 2:
+                AnimalChosen = new Ferret("Ferret", AnimalImages[AnimalIndex]);
+                break;
+            case 3:
+                AnimalChosen = new Frog("Frog", AnimalImages[AnimalIndex]);
+                break;
+            case 4:
+                AnimalChosen = new Giraffe("Giraffe", AnimalImages[AnimalIndex]);
+                break;
+            case 5:
+                AnimalChosen = new Salamander("Salamander", AnimalImages[AnimalIndex]);
+                break;
+                
         }
+
+        Debug.Log(AnimalChosen.AnimalName);
     }
     public void WeaponConfirmation()
     {
-        Debug.Log(WeaponImages[WeaponIndex].name);
+        switch (WeaponIndex)
+        {
+            case 0:
+                WeaponChosen = new Chainsaw(WeaponImages[WeaponIndex]);
+                break;
+            case 1:
+                WeaponChosen = new DesertEagle(WeaponImages[WeaponIndex]);
+                break;
+            case 2:
+                WeaponChosen = new Flamethrower(WeaponImages[WeaponIndex]);
+                break;
+            case 3:
+                WeaponChosen = new Knife(WeaponImages[WeaponIndex]);
+                break;
+            case 4:
+                WeaponChosen = new MorningStar(WeaponImages[WeaponIndex]);
+                break;
+            case 5:
+                WeaponChosen = new Shuriken(WeaponImages[WeaponIndex]);
+                break;
+
+        }
+
+        Debug.Log(WeaponChosen.WeaponName);
     }
 
 

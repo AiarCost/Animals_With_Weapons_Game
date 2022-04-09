@@ -1,22 +1,121 @@
+using UnityEngine;
 
 
-public class Weapon 
+interface IWeapon
 {
-    string WeaponName;
-    float Damage;
-    string Attack1, Attack2;
+    public void AttackType1();
+}
+
+public class Weapon : IWeapon
+{
+    public string WeaponName;
+    public float Damage;
+    public string Attack1;
+    public Sprite WeaponImage;
 
 
-    Weapon(string WeaponName, float Damage)
+    public virtual void AttackType1()
     {
-        this.WeaponName = WeaponName;
-        this.Damage = Damage;
+        Debug.Log("Weapon function ran!");
     }
 
-    public void AttackType1()
-    {
+}
 
+
+public class Chainsaw : Weapon, IWeapon
+{
+
+    public Chainsaw(Sprite WeaponSprite)
+    {
+        WeaponName = "Chainsaw";
+
+       
     }
 
+    public override void AttackType1()
+    {
+        
+    }
+}
 
+public class DesertEagle : Weapon
+{
+
+    public DesertEagle(Sprite WeaponSprite)
+    {
+        WeaponName = "Desert Eagle";
+
+        
+    }
+
+    public override void AttackType1()
+    {
+       
+    }
+}
+
+
+public class Flamethrower : Weapon
+{
+
+    public Flamethrower(Sprite WeaponSprite)
+    {
+        WeaponName = "Flamethrower";
+
+        
+    }
+
+    public override void AttackType1()
+    {
+        
+    }
+}
+
+public class Knife : Weapon
+{
+
+    public Knife(Sprite WeaponSprite)
+    {
+        WeaponName = "Knife";
+
+        
+    }
+
+    public override void AttackType1()
+    {
+        
+    }
+}
+
+
+public class MorningStar : Weapon
+{
+
+    public MorningStar(Sprite WeaponSprite)
+    {
+        WeaponName = "Morning Star";
+
+        
+    }
+
+    public override void AttackType1()
+    {
+        
+    }
+}
+
+public class Shuriken : Weapon
+{
+
+    public Shuriken(Sprite WeaponSprite)
+    {
+        WeaponName = "Shuriken";
+
+        
+    }
+
+    public override void AttackType1()
+    {
+       
+    }
 }
