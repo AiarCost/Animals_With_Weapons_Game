@@ -16,14 +16,14 @@ public class Player
         Debug.Log("Player Created... ready to go");
     }
 
-    public void WeaponAttack()
+    public void WeaponAttack(Player user)
     {
-        WeaponPlayer.AttackType1();
+        WeaponPlayer.AttackType1(user, AnimalPlayer.DefenseTimes);
     }
 
-    public void AnimalAttack()
+    public void AnimalAttack(Player user)
     {
-        AnimalPlayer.AnimalAttack();
+        AnimalPlayer.AnimalAttack(user);
     }
 
     public void AnimalDefense()
