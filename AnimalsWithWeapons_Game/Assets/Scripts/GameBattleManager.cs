@@ -20,13 +20,13 @@ public class GameBattleManager : MonoBehaviour
         Attack2Button.GetComponentInChildren<TextMeshProUGUI>().text = player.WeaponPlayer.Attack1Name;
 
         Attack1Button.onClick.AddListener(() => player.AnimalAttack(enemy));
-        Attack1Button.onClick.AddListener(PlayerChoose);
+        Attack1Button.onClick.AddListener(EnemyChoose);
 
         Defense1Button.onClick.AddListener(player.AnimalDefense);
-        Defense1Button.onClick.AddListener(PlayerChoose);
+        Defense1Button.onClick.AddListener(EnemyChoose);
 
         Attack2Button.onClick.AddListener(() => player.WeaponAttack(enemy));
-        Attack2Button.onClick.AddListener(PlayerChoose);
+        Attack2Button.onClick.AddListener(EnemyChoose);
 
         FleeButton.onClick.AddListener(Flee);
 
@@ -42,26 +42,66 @@ public class GameBattleManager : MonoBehaviour
         }
         else
         {
-            PlayerChoose();
+            EnemyChoose();
         }
     }
 
     public void Flee()
     {
-        Debug.Log("FLeeing!!!");
+        Debug.LogFormat("{0} is fleeing!", player.AnimalPlayer.AnimalName);
+        TurnUIOffOrOn(false);
     }
 
-    public void PlayerChoose()
+    public void TurnUIOffOrOn(bool OnOrOff)
     {
-        Attack1Button.gameObject.SetActive(false);
-        Attack2Button.gameObject.SetActive(false);
-        Defense1Button.gameObject.SetActive(false);
-        FleeButton.gameObject.SetActive(false);
-
-        StartCoroutine(EnemyTurn());
+        if (OnOrOff)
+        {
+            Attack1Button.gameObject.SetActive(true);
+            Attack2Button.gameObject.SetActive(true);
+            Defense1Button.gameObject.SetActive(true);
+            FleeButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            Attack1Button.gameObject.SetActive(false);
+            Attack2Button.gameObject.SetActive(false);
+            Defense1Button.gameObject.SetActive(false);
+            FleeButton.gameObject.SetActive(false);
+        }
 
     }
 
+    public void EnemyChoose()
+    {
+
+        TurnUIOffOrOn(false);
+        bool GameOver = GameOverCheck();
+
+        if (!GameOver)
+        {
+            StartCoroutine(EnemyTurn());
+        }
+
+
+
+    }
+
+    public bool GameOverCheck()
+    {
+        if(player.AnimalPlayer.Health <= 0)
+        {
+            Debug.Log("Player Lost!");
+            return true;
+        }
+
+        if(enemy.AnimalPlayer.Health <= 0)
+        {
+            Debug.Log("Enemy Lost!");
+            return true;
+        }
+
+        return false;
+    }
 
     IEnumerator EnemyTurn()
     {
@@ -83,9 +123,10 @@ public class GameBattleManager : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        Attack1Button.gameObject.SetActive(true);
-        Attack2Button.gameObject.SetActive(true);
-        Defense1Button.gameObject.SetActive(true);
-        FleeButton.gameObject.SetActive(true);
+        bool GameOver = GameOverCheck();
+        if (!GameOver)
+        {
+            TurnUIOffOrOn(true);
+        }
     }
 }

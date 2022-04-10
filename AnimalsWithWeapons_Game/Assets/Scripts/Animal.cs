@@ -7,7 +7,7 @@ interface IAnimal
 }
 
 
-public class Animal: IAnimal
+public class Animal: UIAndLogUsage, IAnimal
 {
     public string AnimalName;
     public float Health;
