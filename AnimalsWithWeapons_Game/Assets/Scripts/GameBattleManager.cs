@@ -10,9 +10,11 @@ public class GameBattleManager : MonoBehaviour
     public Button Attack1Button, Attack2Button, Defense1Button, FleeButton;
     public Image PAnimalImage, PWeaponImage, EAnimalImage, EWeaponImage;
 
+    public GameObject PlayerUI, EnemyUI;
+
     public ScenesManager Scene;
 
-    public TextMeshProUGUI ActionText, PlayerName, EnemyName;
+    public TextMeshProUGUI ActionText, PlayerName, EnemyName, playerHealthText;
 
     Player player = GameManager.instance.playerClass;
     Player enemy = GameManager.instance.enemyClass;
@@ -51,6 +53,17 @@ public class GameBattleManager : MonoBehaviour
 
         PlayerName.text = player.AnimalPlayer.AnimalName;
         EnemyName.text = enemy.AnimalPlayer.AnimalName;
+
+        player.HealthImage = PlayerUI;
+        enemy.HealthImage = EnemyUI;
+
+        player.RemainingHealth = playerHealthText;
+        player.TotalHealth = (int)player.AnimalPlayer.Health;
+
+        enemy.TotalHealth = (int)enemy.AnimalPlayer.Health;
+
+        player.UpdateUI(player);
+        enemy.UpdateUI(enemy);
 
         if(player.AnimalPlayer.speed >= enemy.AnimalPlayer.speed)
         {
