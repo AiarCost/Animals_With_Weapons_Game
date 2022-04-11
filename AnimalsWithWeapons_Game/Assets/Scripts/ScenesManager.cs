@@ -24,4 +24,9 @@ public class ScenesManager : MonoBehaviour
             SceneManager.LoadScene(SceneIndex);
         }
     }
+
+    public void QuitFunction()
+    {
+        Application.Quit();
+    }
 }

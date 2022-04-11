@@ -13,7 +13,7 @@ public class Player
         AnimalPlayer = AnimalChosen;
         WeaponPlayer = WeaponChosen;
 
-        Debug.Log("Player Created... ready to go");
+       // Debug.Log("Player Created... ready to go");
     }
 
     public void WeaponAttack(Player user)

@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 interface IAnimal
 {
     public abstract void AnimalAttack(Player user);
@@ -22,6 +23,8 @@ public class Animal: UIAndLogUsage, IAnimal
     public int Attack1Damage;
     public string Defense1Name;
 
+
+
     public void  AnimalAttack(Player user) {
 
         if (user.AnimalPlayer.InDefense)
@@ -29,12 +32,12 @@ public class Animal: UIAndLogUsage, IAnimal
             int roll = Random.Range(0, 100);
             if (roll <= user.AnimalPlayer.defense)
             {
-                Debug.LogFormat("{0}'s Attack has missed on {1}",this.AnimalName, user.AnimalPlayer.AnimalName);
+                UITextAnnouncement.text = string.Format("{0}'s Attack has missed on {1}",this.AnimalName, user.AnimalPlayer.AnimalName);
             }
             else
             {
                 user.AnimalPlayer.Health -= this.Attack1Damage;
-                Debug.LogFormat("{0} has taken {1} damage from {2}! Health is now: {3}", user.AnimalPlayer.AnimalName, Attack1Damage, Attack1Name, user.AnimalPlayer.Health);
+                UITextAnnouncement.text = string.Format("{0} has taken {1} damage from {2}! Health is now: {3}", user.AnimalPlayer.AnimalName, Attack1Damage, Attack1Name, user.AnimalPlayer.Health);
             }
             user.AnimalPlayer.defenseUsed++;
 
@@ -47,7 +50,7 @@ public class Animal: UIAndLogUsage, IAnimal
         else
         {
             user.AnimalPlayer.Health -= this.Attack1Damage;
-            Debug.LogFormat("{0} has taken {1} damage from {2}! Health is now: {3}", user.AnimalPlayer.AnimalName, Attack1Damage, Attack1Name, user.AnimalPlayer.Health);
+            UITextAnnouncement.text = string.Format("{0} has taken {1} damage from {2}! Health is now: {3}", user.AnimalPlayer.AnimalName, Attack1Damage, Attack1Name, user.AnimalPlayer.Health);
         }
     }
 
@@ -55,7 +58,7 @@ public class Animal: UIAndLogUsage, IAnimal
     public void AnimalDefense() 
     {
         InDefense = true;
-        Debug.LogFormat("{0}'s {1} activated!", AnimalName, Defense1Name); 
+        UITextAnnouncement.text = string.Format("{0}'s {1} activated!", AnimalName, Defense1Name); 
     }
 }
 

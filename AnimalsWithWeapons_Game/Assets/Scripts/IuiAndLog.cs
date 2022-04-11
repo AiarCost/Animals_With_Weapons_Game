@@ -1,20 +1,27 @@
+using UnityEngine.UI;
+using TMPro;
 interface IuiAndLog
 {
-    public void WriteToUI();
+    public void WriteToUI(string LogText);
 
-    public void WriteToLog();
+    public void WriteToLog(string Announcement);
 }
 
 
 public class UIAndLogUsage : IuiAndLog
 {
-    public void WriteToLog()
+    public TextMeshProUGUI UITextAnnouncement;
+
+    public void WriteToLog(string LogText)
     {
-        throw new System.NotImplementedException();
+        
     }
 
-    public void WriteToUI()
+    public void WriteToUI(string Announcement)
     {
-        throw new System.NotImplementedException();
+        UITextAnnouncement.text = Announcement;
+
+        WriteToLog(Announcement);
     }
+
 }

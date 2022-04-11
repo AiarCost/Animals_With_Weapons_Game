@@ -6,7 +6,7 @@ interface IWeapon
     public void AttackType1(Player user, int StaticDefense);
 }
 
-public class Weapon : IWeapon
+public class Weapon : UIAndLogUsage, IWeapon
 {
     public string WeaponName;
     public float Damage;
@@ -21,12 +21,12 @@ public class Weapon : IWeapon
             int roll = Random.Range(0, 100);
             if (roll <= user.AnimalPlayer.defense)
             {
-                Debug.LogFormat("{0}'s Attack has missed on {1}", WeaponName, user.AnimalPlayer.AnimalName);
+                UITextAnnouncement.text = string.Format("{0}'s Attack has missed on {1}", WeaponName, user.AnimalPlayer.AnimalName);
             }
             else
             {
                 user.AnimalPlayer.Health -= this.Damage;
-                Debug.LogFormat("{0} has taken {1} damage from {2}! Health is now: {3}", user.AnimalPlayer.AnimalName, Damage, Attack1Name, user.AnimalPlayer.Health);
+                UITextAnnouncement.text = string.Format("{0} has taken {1} damage from {2}! Health is now: {3}", user.AnimalPlayer.AnimalName, Damage, Attack1Name, user.AnimalPlayer.Health);
             }
             user.AnimalPlayer.defenseUsed++;
 
@@ -39,7 +39,7 @@ public class Weapon : IWeapon
         else
         {
             user.AnimalPlayer.Health -= this.Damage;
-            Debug.LogFormat("{0} has taken {1} damage from {2}! Health is now: {3}", user.AnimalPlayer.AnimalName, Damage, Attack1Name, user.AnimalPlayer.Health);
+            UITextAnnouncement.text = string.Format("{0} has taken {1} damage from {2}! Health is now: {3}", user.AnimalPlayer.AnimalName, Damage, Attack1Name, user.AnimalPlayer.Health);
         }
     }
 

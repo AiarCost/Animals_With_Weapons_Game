@@ -10,8 +10,20 @@ public class GameBattleManager : MonoBehaviour
     public Button Attack1Button, Attack2Button, Defense1Button, FleeButton;
     public Image PAnimalImage, PWeaponImage, EAnimalImage, EWeaponImage;
 
+    public TextMeshProUGUI ActionText, PlayerName, EnemyName;
+
     Player player = GameManager.instance.playerClass;
     Player enemy = GameManager.instance.enemyClass;
+
+
+    private void Awake()
+    {
+        player.AnimalPlayer.UITextAnnouncement = ActionText;
+        player.WeaponPlayer.UITextAnnouncement = ActionText;
+
+        enemy.AnimalPlayer.UITextAnnouncement = ActionText;
+        enemy.WeaponPlayer.UITextAnnouncement = ActionText;
+    }
 
     private void Start()
     {
@@ -48,7 +60,7 @@ public class GameBattleManager : MonoBehaviour
 
     public void Flee()
     {
-        Debug.LogFormat("{0} is fleeing!", player.AnimalPlayer.AnimalName);
+       ActionText.text = string.Format("{0} is fleeing!", player.AnimalPlayer.AnimalName);
         TurnUIOffOrOn(false);
     }
 
@@ -90,13 +102,13 @@ public class GameBattleManager : MonoBehaviour
     {
         if(player.AnimalPlayer.Health <= 0)
         {
-            Debug.Log("Player Lost!");
+            ActionText.text = "Player Lost!";
             return true;
         }
 
         if(enemy.AnimalPlayer.Health <= 0)
         {
-            Debug.Log("Enemy Lost!");
+            ActionText.text = "Enemy Lost!";
             return true;
         }
 
@@ -128,5 +140,10 @@ public class GameBattleManager : MonoBehaviour
         {
             TurnUIOffOrOn(true);
         }
+    }
+
+    void UpdateHealthUI()
+    {
+
     }
 }
