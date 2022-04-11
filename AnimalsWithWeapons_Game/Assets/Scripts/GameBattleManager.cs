@@ -22,11 +22,7 @@ public class GameBattleManager : MonoBehaviour
 
     private void Awake()
     {
-        player.AnimalPlayer.UITextAnnouncement = ActionText;
-        player.WeaponPlayer.UITextAnnouncement = ActionText;
 
-        enemy.AnimalPlayer.UITextAnnouncement = ActionText;
-        enemy.WeaponPlayer.UITextAnnouncement = ActionText;
     }
 
     private void Start()
@@ -45,6 +41,13 @@ public class GameBattleManager : MonoBehaviour
         Attack2Button.onClick.AddListener(EnemyChoose);
 
         FleeButton.onClick.AddListener(Flee);
+
+        player.AnimalPlayer.UITextAnnouncement = ActionText;
+        player.WeaponPlayer.UITextAnnouncement = ActionText;
+
+        enemy.AnimalPlayer.UITextAnnouncement = ActionText;
+        enemy.WeaponPlayer.UITextAnnouncement = ActionText;
+
 
         PAnimalImage.sprite = player.AnimalPlayer.AnimalImage;
         PWeaponImage.sprite = player.WeaponPlayer.WeaponImage;

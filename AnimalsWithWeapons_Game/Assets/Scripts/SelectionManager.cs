@@ -47,6 +47,8 @@ public class SelectionManager : MonoBehaviour
 
             EnemyChangedName = reader.ReadLine();
 
+            Debug.Log(EnemyChangedName);
+
             EnemyAnimal = UnityEngine.Random.Range(0, 5);
             EnemyWeapon = UnityEngine.Random.Range(0, 5);
             AnimalConfirmation(EnemyAnimal);
