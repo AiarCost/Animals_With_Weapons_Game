@@ -3201,6 +3201,7 @@ MonoBehaviour:
   AnimalImage: {fileID: 1869520545}
   WeaponImage: {fileID: 759403989}
   warningText: {fileID: 1091720237}
+  scene: {fileID: 96177514}
 --- !u!4 &1805988640
 Transform:
   m_ObjectHideFlags: 0

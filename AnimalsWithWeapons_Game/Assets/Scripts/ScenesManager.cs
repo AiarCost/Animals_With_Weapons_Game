@@ -19,7 +19,7 @@ public class ScenesManager : MonoBehaviour
 
     public void ChangeSceneWithPlayerCheck(int SceneIndex)
     {
-        if(GameManager.instance.playerClass != null)
+        if(GameManager.instance.playerClass != null && GameManager.instance.enemyClass != null)
         {
             SceneManager.LoadScene(SceneIndex);
         }

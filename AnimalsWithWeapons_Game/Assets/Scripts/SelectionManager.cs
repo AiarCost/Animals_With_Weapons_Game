@@ -12,12 +12,14 @@ public class SelectionManager : MonoBehaviour
     public Image AnimalImage, WeaponImage;
     int WeaponIndex =0, AnimalIndex=0;
 
+    public TextAsset TextFile;
+
     public GameObject warningText;
 
     public Animal AnimalChosen = null;
     public Weapon WeaponChosen = null;
 
-
+    public ScenesManager scene;
 
     public void CompleteSelection()
     {
@@ -33,41 +35,42 @@ public class SelectionManager : MonoBehaviour
             GameManager.instance.PlayerCreated(CreatePlayer);
 
 
-            //Enemy Creation
-            int EnemyAnimal, EnemyWeapon, EnemyName;
-            string path = "Assets/Notes/Names.txt", EnemyChangedName;
-            StreamReader reader = new StreamReader(path);
-
-            EnemyName = UnityEngine.Random.Range(1, 50);
-
-            for(int i = 1; i < EnemyName; i++)
-            {
-                reader.ReadLine();
-            }
-
-            EnemyChangedName = reader.ReadLine();
-
-            Debug.Log(EnemyChangedName);
-
-            EnemyAnimal = UnityEngine.Random.Range(0, 5);
-            EnemyWeapon = UnityEngine.Random.Range(0, 5);
-            AnimalConfirmation(EnemyAnimal);
-            WeaponConfirmation(EnemyWeapon);
-            Player createEnemy = new Player(AnimalChosen, WeaponChosen);
-            createEnemy.AnimalPlayer.AnimalName = EnemyChangedName;
-
-            GameManager.instance.EnemyCreated(createEnemy);
-
 
         }
         catch(NullReferenceException ex)
         {
             StartCoroutine("Warning");
         }
-        catch
+
+
+
+        //Enemy Creation
+        int EnemyAnimal, EnemyWeapon, EnemyName;
+        string path = "Assets/Resources/Names.txt", EnemyChangedName;
+        StreamReader reader = new StreamReader(Path.Combine(Application.streamingAssetsPath, "Names.txt"));
+
+        EnemyName = UnityEngine.Random.Range(1, 50);
+
+        for (int i = 1; i < EnemyName; i++)
         {
-            StartCoroutine("Warning");
+            reader.ReadLine();
         }
+
+        EnemyChangedName = reader.ReadLine();
+
+        reader.Close();
+        Debug.Log(EnemyChangedName);
+
+        EnemyAnimal = UnityEngine.Random.Range(0, 5);
+        EnemyWeapon = UnityEngine.Random.Range(0, 5);
+        AnimalConfirmation(EnemyAnimal);
+        WeaponConfirmation(EnemyWeapon);
+        Player createEnemy = new Player(AnimalChosen, WeaponChosen);
+        createEnemy.AnimalPlayer.AnimalName = EnemyChangedName;
+
+        GameManager.instance.EnemyCreated(createEnemy);
+
+
     }
 
     public IEnumerator Warning()
