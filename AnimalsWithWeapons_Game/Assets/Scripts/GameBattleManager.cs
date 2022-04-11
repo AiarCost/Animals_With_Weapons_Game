@@ -10,6 +10,8 @@ public class GameBattleManager : MonoBehaviour
     public Button Attack1Button, Attack2Button, Defense1Button, FleeButton;
     public Image PAnimalImage, PWeaponImage, EAnimalImage, EWeaponImage;
 
+    public ScenesManager Scene;
+
     public TextMeshProUGUI ActionText, PlayerName, EnemyName;
 
     Player player = GameManager.instance.playerClass;
@@ -47,6 +49,8 @@ public class GameBattleManager : MonoBehaviour
         EAnimalImage.sprite = enemy.AnimalPlayer.AnimalImage;
         EWeaponImage.sprite = enemy.WeaponPlayer.WeaponImage;
 
+        PlayerName.text = player.AnimalPlayer.AnimalName;
+        EnemyName.text = enemy.AnimalPlayer.AnimalName;
 
         if(player.AnimalPlayer.speed >= enemy.AnimalPlayer.speed)
         {
@@ -62,6 +66,10 @@ public class GameBattleManager : MonoBehaviour
     {
        ActionText.text = string.Format("{0} is fleeing!", player.AnimalPlayer.AnimalName);
         TurnUIOffOrOn(false);
+
+        GameManager.instance.Win = false;
+
+        Scene.ChangeScene("EndScene");
     }
 
     public void TurnUIOffOrOn(bool OnOrOff)
@@ -102,13 +110,15 @@ public class GameBattleManager : MonoBehaviour
     {
         if(player.AnimalPlayer.Health <= 0)
         {
-            ActionText.text = "Player Lost!";
+            GameManager.instance.Win = false;
+            Scene.ChangeScene("EndScene");
             return true;
         }
 
         if(enemy.AnimalPlayer.Health <= 0)
         {
-            ActionText.text = "Enemy Lost!";
+            GameManager.instance.Win = true;
+            Scene.ChangeScene("EndScene");
             return true;
         }
 

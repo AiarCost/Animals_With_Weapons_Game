@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -34,15 +34,29 @@ public class SelectionManager : MonoBehaviour
 
 
             //Enemy Creation
-            int EnemyAnimal, EnemyWeapon;
+            int EnemyAnimal, EnemyWeapon, EnemyName;
+            string path = "Assets/Notes/Names.txt", EnemyChangedName;
+            StreamReader reader = new StreamReader(path);
+
+            EnemyName = UnityEngine.Random.Range(1, 50);
+
+            for(int i = 1; i < EnemyName; i++)
+            {
+                reader.ReadLine();
+            }
+
+            EnemyChangedName = reader.ReadLine();
 
             EnemyAnimal = UnityEngine.Random.Range(0, 5);
             EnemyWeapon = UnityEngine.Random.Range(0, 5);
             AnimalConfirmation(EnemyAnimal);
             WeaponConfirmation(EnemyWeapon);
             Player createEnemy = new Player(AnimalChosen, WeaponChosen);
+            createEnemy.AnimalPlayer.AnimalName = EnemyChangedName;
 
             GameManager.instance.EnemyCreated(createEnemy);
+
+
         }
         catch(NullReferenceException ex)
         {

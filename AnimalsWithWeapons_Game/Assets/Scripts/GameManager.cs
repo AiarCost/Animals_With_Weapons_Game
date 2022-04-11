@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public Player playerClass = null;
     public Player enemyClass = null;
 
+    public bool Win;
+
     //instance
     public static GameManager instance;
 
